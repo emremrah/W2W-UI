@@ -1,16 +1,35 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { CheckboxBoxComponent } from './checkbox-box/checkbox-box.component';
+import { HeaderComponent } from './header/header.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSliderModule } from '@angular/material/slider';
+import { MovieComponent } from './movie-list/movie/movie.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CheckboxBoxComponent,
+    HeaderComponent,
+    MovieListComponent,
+    MovieComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    FormsModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    MatCardModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

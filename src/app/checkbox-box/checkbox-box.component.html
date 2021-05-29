@@ -1,0 +1,7 @@
+<section class="checkbox-section">
+  <p *ngFor="let genre of genresData; let i = index">
+    <mat-checkbox (change)="onGenreSelect($event, i)">{{
+      genre.name.toUpperCase()
+    }}</mat-checkbox>
+  </p>
+</section>
