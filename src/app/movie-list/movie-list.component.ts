@@ -12,7 +12,7 @@ export class MovieListComponent implements OnInit {
 
   constructor() {
     this.movies.push(
-      new Movie('Gladiator', 'A gladiator figts.', ['drama'], 8.8)
+      new Movie('123', 'Gladiator', 'A gladiator figts.', ['drama'], 8.8)
     );
   }
 

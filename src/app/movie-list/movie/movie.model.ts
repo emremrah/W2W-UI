@@ -1,18 +1,14 @@
 export class Movie {
-  public title: string;
-  public description: string;
-  public genres: Array<string>;
-  public rate: number;
-
   constructor(
-    title: string,
-    desctiption: string,
-    genres: Array<string>,
-    rate: number
+    public id: string,
+    public title: string,
+    public plot: string,
+    public genres: Array<string>,
+    public rating: number
   ) {
     (this.title = title),
-      (this.description = desctiption),
+      (this.plot = plot),
       (this.genres = genres),
-      (this.rate = rate);
+      (this.rating = rating);
   }
 }
