@@ -10,11 +10,7 @@ import { Movie } from './movie/movie.model';
 export class MovieListComponent implements OnInit {
   movies: Array<Movie> = [];
 
-  constructor() {
-    this.movies.push(
-      new Movie('123', 'Gladiator', 'A gladiator figts.', ['drama'], 8.8)
-    );
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }
