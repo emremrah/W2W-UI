@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MovieComponent } from './movie-list/movie/movie.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { NgModule } from '@angular/core';
@@ -30,6 +31,7 @@ import { NgModule } from '@angular/core';
     ReactiveFormsModule,
     MatCardModule,
     HttpClientModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

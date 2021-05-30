@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { CheckboxBoxComponent } from './checkbox-box/checkbox-box.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Movie } from './movie-list/movie/movie.model';
 import { MovieListComponent } from './movie-list/movie-list.component';
 
@@ -14,6 +15,8 @@ export class AppComponent {
   @ViewChild(MovieListComponent) movieListComponent: MovieListComponent;
   minRating = 0;
   selectedGenres: string[];
+
+  constructor(private snackBar: MatSnackBar) {}
 
   onSliderChange(event: any) {
     this.minRating = event;
@@ -32,7 +35,11 @@ export class AppComponent {
       headers: { 'Content-Type': 'application/json' },
     })
       .then((response) => response.json())
-      .catch(() => console.log('Filmleri getirirken hata oluştu.'));
+      .catch((res) => {
+        this.snackBar.open('Hata oluştu', 'Kapat', {
+          duration: 2000,
+        });
+      });
 
     this.movieListComponent.movies = response;
   }
