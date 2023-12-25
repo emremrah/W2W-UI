@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { Genre } from '../models/genre.model';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MovieService } from '../services/movie/movie.service';
 
 @Component({
   selector: 'app-checkbox-box',
@@ -10,26 +11,31 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   styleUrls: ['./checkbox-box.component.css'],
 })
 export class CheckboxBoxComponent implements OnInit {
-  genresData = [
-    { id: 1, name: 'horror' },
-    { id: 2, name: 'action' },
-    { id: 3, name: 'comedy' },
-  ];
-  genres: Array<Genre> = [];
+  allGenres: string[] = [];
+  selectedGenres: Array<Genre> = [];
   checkedGenres: string[];
 
-  constructor() {
-    this.genresData.map((genre) => {
-      this.genres.push(new Genre(genre.name, false));
-    });
-  }
+  constructor(private movieService: MovieService) { }
 
   onGenreSelect(event: MatCheckboxChange, i: number) {
-    this.genres[i].selected = event.checked;
-    this.checkedGenres = this.genres
+    this.selectedGenres[i].selected = event.checked;
+    this.checkedGenres = this.selectedGenres
       .filter((genre) => genre.selected)
       .map((genre) => genre.name);
   }
 
-  ngOnInit(): void {}
+  trackGenre(index: number, genre: Genre) {
+    return genre.name;
+  }
+
+
+  ngOnInit(): void {
+    this.movieService.getGenres().subscribe((genres: string[]) => {
+      this.allGenres = genres;
+      this.selectedGenres = this.allGenres.map((genre) => ({
+        name: genre,
+        selected: false,
+      }));
+    });
+  }
 }
