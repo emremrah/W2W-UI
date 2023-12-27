@@ -23,6 +23,9 @@ export class AppComponent {
   }
 
   async getResults() {
+    // Reset the movie list
+    this.movieListComponent.movies = [];
+
     this.selectedGenres = this.checkboxBoxComponent.checkedGenres;
 
     const response: Movie[] = await fetch('http://127.0.0.1:41000/pop100', {
