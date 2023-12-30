@@ -1,4 +1,10 @@
 <mat-card>
+  <img
+    mat-card-image
+    class="cover-image"
+    [src]="movie.image_url"
+    alt="{{ movie.title }} Cover"
+  />
   <mat-card-header>
     <mat-card-title>{{ movie.title }}</mat-card-title>
   </mat-card-header>

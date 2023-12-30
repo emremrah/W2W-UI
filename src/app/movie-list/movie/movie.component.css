@@ -1,0 +1,5 @@
+.cover-image {
+  max-width: 100%; /* Set the maximum width to 100% of the container */
+  max-height: 200px; /* Set the maximum height as needed */
+  object-fit: cover; /* Maintain the aspect ratio while covering the entire container */
+}
