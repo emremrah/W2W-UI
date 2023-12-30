@@ -1,12 +1,16 @@
 <mat-card>
-  <img
-    mat-card-image
-    class="cover-image"
-    [src]="movie.image_url"
-    alt="{{ movie.title }} Cover"
-  />
+  <a href="{{ movie.imdb_url }}" target="_blank">
+    <img
+      mat-card-image
+      class="cover-image"
+      [src]="movie.image_url"
+      alt="{{ movie.title }} Cover"
+    />
+  </a>
   <mat-card-header>
-    <mat-card-title>{{ movie.title }}</mat-card-title>
+    <a href="{{ movie.imdb_url }}" target="_blank">
+      <mat-card-title>{{ movie.title }}</mat-card-title>
+    </a>
   </mat-card-header>
   <mat-card-content>
     <p>{{ movie.plot }}</p>

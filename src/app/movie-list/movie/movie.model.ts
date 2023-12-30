@@ -5,6 +5,7 @@ export class Movie {
     public plot?: string,
     public rating?: number,
     public genres?: Array<string>,
-    public image_url?: string
+    public image_url?: string,
+    public imdb_url?: string
   ) {}
 }
