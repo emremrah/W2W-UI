@@ -13,10 +13,24 @@
     </a>
   </mat-card-header>
   <mat-card-content>
-    <p>{{ movie.plot }}</p>
+    <ng-container *ngIf="movie.ai_summary; else plotSection">
+      <div class="ai-summary">
+        <span
+          ><img src="assets/ai.png" class="ai-summary-icon" />{{
+            movie.ai_summary
+          }}</span
+        >
+      </div>
+    </ng-container>
+    <ng-template #plotSection>
+      <p>{{ movie.plot }}</p>
+    </ng-template>
   </mat-card-content>
   <mat-card-footer>
     <mat-chip-list>
-      <mat-chip *ngFor="let genre of movie.genres" color="primary">{{ genre }}</mat-chip>
+      <mat-chip *ngFor="let genre of movie.genres" color="primary">{{
+        genre
+      }}</mat-chip>
     </mat-chip-list>
-  </mat-card-footer></mat-card>
+  </mat-card-footer>
+</mat-card>

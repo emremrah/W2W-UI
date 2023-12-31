@@ -14,6 +14,7 @@ import { MovieComponent } from './movie-list/movie/movie.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { NgModule } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MatChipsModule } from '@angular/material/chips';
     ReactiveFormsModule,
     MatCardModule,
     MatChipsModule,
+    MatIconModule,
     HttpClientModule,
     MatSnackBarModule,
   ],
