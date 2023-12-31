@@ -13,6 +13,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MovieComponent } from './movie-list/movie/movie.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { NgModule } from '@angular/core';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgModule } from '@angular/core';
     MatCheckboxModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatChipsModule,
     HttpClientModule,
     MatSnackBarModule,
   ],

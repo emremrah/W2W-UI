@@ -15,5 +15,8 @@
   <mat-card-content>
     <p>{{ movie.plot }}</p>
   </mat-card-content>
-  <mat-card-footer>{{ movie.genres }}</mat-card-footer>
-</mat-card>
+  <mat-card-footer>
+    <mat-chip-list>
+      <mat-chip *ngFor="let genre of movie.genres" color="primary">{{ genre }}</mat-chip>
+    </mat-chip-list>
+  </mat-card-footer></mat-card>
