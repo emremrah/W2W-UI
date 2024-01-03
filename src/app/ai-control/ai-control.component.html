@@ -1,0 +1,14 @@
+<div class="ai-control">
+  <mat-slide-toggle [(ngModel)]="aiEnabled">Use AI</mat-slide-toggle>
+  <div [@fadeInOut] *ngIf="aiEnabled">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter AI Prompt</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="userPrompt"
+        placeholder="Type your prompt"
+        rows="5"
+      ></textarea>
+    </mat-form-field>
+  </div>
+</div>

@@ -15,11 +15,16 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { NgModule } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { AiControlComponent } from './ai-control/ai-control.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     CheckboxBoxComponent,
+    AiControlComponent,
     HeaderComponent,
     MovieListComponent,
     MovieComponent,
@@ -36,6 +41,12 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
     HttpClientModule,
     MatSnackBarModule,
+    BrowserModule,
+    FormsModule,
+    MatSlideToggleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

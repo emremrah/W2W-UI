@@ -1,0 +1,15 @@
+/* Add styles as needed */
+.ai-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+}
