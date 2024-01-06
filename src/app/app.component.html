@@ -8,13 +8,14 @@
         <label class="col-md-1">{{ minRating }}</label>
         <mat-slider
           class="col-md-1"
-          thumbLabel
+          discrete="true"
           tickInterval="1"
           step="0.1"
           min="0"
           max="10"
-          (valueChange)="onSliderChange($event)"
-        ></mat-slider>
+        >
+          <input matSliderThumb [(ngModel)]="minRating" #slider />
+        </mat-slider>
       </div>
     </div>
     <button class="btn btn-primary" (click)="getResults()">Get results</button>

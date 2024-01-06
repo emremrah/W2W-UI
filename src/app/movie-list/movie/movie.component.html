@@ -27,10 +27,6 @@
     </ng-template>
   </mat-card-content>
   <mat-card-footer>
-    <mat-chip-list>
-      <mat-chip *ngFor="let genre of movie.genres" color="primary">{{
-        genre
-      }}</mat-chip>
-    </mat-chip-list>
+    <mat-chip *ngFor="let genre of movie.genres">{{ genre }}</mat-chip>
   </mat-card-footer>
 </mat-card>

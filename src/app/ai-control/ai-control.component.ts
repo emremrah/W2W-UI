@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-ai-control',
@@ -7,14 +14,17 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   styleUrls: ['./ai-control.component.css'],
   animations: [
     trigger('fadeInOut', [
-      state('void', style({
-        opacity: 0
-      })),
-      transition('void <=> *', animate(300))
-    ])
-  ]
+      state(
+        'void',
+        style({
+          opacity: 0,
+        })
+      ),
+      transition('void <=> *', animate(300)),
+    ]),
+  ],
 })
 export class AiControlComponent {
-  aiEnabled: boolean = false;
-  userPrompt: string = '';
+  aiEnabled = new FormControl(false);
+  userPrompt = new FormControl('');
 }

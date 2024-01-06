@@ -20,10 +20,6 @@ export class AppComponent {
 
   constructor(private snackBar: MatSnackBar) {}
 
-  onSliderChange(event: any) {
-    this.minRating = event;
-  }
-
   async getResults() {
     // Reset the movie list
     this.movieListComponent.movies = [];
@@ -35,8 +31,8 @@ export class AppComponent {
       body: JSON.stringify({
         genres: this.selectedGenres,
         min_rating: this.minRating,
-        use_ai: this.aiControlComponent.aiEnabled,
-        user_prompt: this.aiControlComponent.userPrompt || null,
+        use_ai: this.aiControlComponent.aiEnabled.value,
+        user_prompt: this.aiControlComponent.userPrompt.value || null,
       }),
       headers: { 'Content-Type': 'application/json' },
     })

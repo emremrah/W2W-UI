@@ -15,7 +15,7 @@ export class CheckboxBoxComponent implements OnInit {
   selectedGenres: Array<Genre> = [];
   checkedGenres: string[];
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService) {}
 
   onGenreSelect(event: MatCheckboxChange, i: number) {
     this.selectedGenres[i].selected = event.checked;
@@ -27,7 +27,6 @@ export class CheckboxBoxComponent implements OnInit {
   trackGenre(index: number, genre: Genre) {
     return genre.name;
   }
-
 
   ngOnInit(): void {
     this.movieService.getGenres().subscribe((genres: string[]) => {
