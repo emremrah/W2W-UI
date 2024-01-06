@@ -4,6 +4,7 @@ import { CheckboxBoxComponent } from './checkbox-box/checkbox-box.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Movie } from './movie-list/movie/movie.model';
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { AiControlComponent } from './ai-control/ai-control.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 export class AppComponent {
   @ViewChild(CheckboxBoxComponent) checkboxBoxComponent: CheckboxBoxComponent;
   @ViewChild(MovieListComponent) movieListComponent: MovieListComponent;
+  @ViewChild(AiControlComponent) aiControlComponent: AiControlComponent;
   minRating = 0;
   selectedGenres: string[];
 
@@ -33,7 +35,8 @@ export class AppComponent {
       body: JSON.stringify({
         genres: this.selectedGenres,
         min_rating: this.minRating,
-        search_in: 3,
+        use_ai: this.aiControlComponent.aiEnabled,
+        user_prompt: this.aiControlComponent.userPrompt || null,
       }),
       headers: { 'Content-Type': 'application/json' },
     })
