@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-
 import { Genre } from '../models/genre.model';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MovieService } from '../services/movie/movie.service';
@@ -11,27 +9,20 @@ import { MovieService } from '../services/movie/movie.service';
   styleUrls: ['./checkbox-box.component.css'],
 })
 export class CheckboxBoxComponent implements OnInit {
-  allGenres: string[] = [];
-  selectedGenres: Array<Genre> = [];
-  checkedGenres: string[];
+  genres: Array<Genre> = [];
 
   constructor(private movieService: MovieService) {}
 
   onGenreSelect(event: MatCheckboxChange, i: number) {
-    this.selectedGenres[i].selected = event.checked;
-    this.checkedGenres = this.selectedGenres
-      .filter((genre) => genre.selected)
-      .map((genre) => genre.name);
+    this.genres[i].selected = event.checked;
   }
-
-  trackGenre(index: number, genre: Genre) {
-    return genre.name;
+  getSelectedGenres() {
+    return this.genres.filter((genre) => genre.selected);
   }
 
   ngOnInit(): void {
     this.movieService.getGenres().subscribe((genres: string[]) => {
-      this.allGenres = genres;
-      this.selectedGenres = this.allGenres.map((genre) => ({
+      this.genres = genres.map((genre) => ({
         name: genre,
         selected: false,
       }));
