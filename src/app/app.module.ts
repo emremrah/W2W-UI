@@ -18,6 +18,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { AiControlComponent } from './ai-control/ai-control.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { RouterModule } from '@angular/router';
+import { AboutComponent } from './about/about.component';
+import { PopMoviesComponent } from './pages/pop-movies/pop-movies.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HeaderComponent,
     MovieListComponent,
     MovieComponent,
+    AboutComponent,
+    PopMoviesComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
+    RouterModule.forRoot([
+      { path: '', component: PopMoviesComponent },
+      { path: 'about', component: AboutComponent },
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent],
