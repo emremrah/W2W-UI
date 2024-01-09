@@ -1,3 +1,7 @@
 .movie-container {
   margin-bottom: 16px;
 }
+
+app-movie {
+  margin: 0 8px;
+}
