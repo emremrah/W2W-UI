@@ -1,5 +1,7 @@
-<div class="ai-control">
-  <mat-checkbox [formControl]="aiEnabled"> Use AI </mat-checkbox>
+<div>
+  <mat-slide-toggle class="toggle" [formControl]="aiEnabled">
+    <span>Use AI</span>
+  </mat-slide-toggle>
   <div [@fadeInOut] *ngIf="aiEnabled.value">
     <mat-form-field appearance="fill">
       <mat-label>Enter AI Prompt</mat-label>

@@ -12,9 +12,7 @@ export class CheckboxBoxComponent implements OnInit {
 
   constructor() {}
 
-  onGenreSelect(event: MatCheckboxChange, i: number) {
-    this.genres[i].selected = event.checked;
-  }
+  onGenreSelect(event: MatCheckboxChange, i: number) {}
 
   ngOnInit(): void {}
 }

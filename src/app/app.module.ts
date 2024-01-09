@@ -22,6 +22,9 @@ import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { PopMoviesComponent } from './pages/pop-movies/pop-movies.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { GenreSelectorComponent } from './genre-selector/genre-selector.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MovieComponent,
     AboutComponent,
     PopMoviesComponent,
+    GenreSelectorComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatFormFieldModule,
     MatInputModule,
     MatProgressBarModule,
+    MatSlideToggleModule,
+    MatExpansionModule,
     RouterModule.forRoot([
       { path: '', component: PopMoviesComponent },
       { path: 'about', component: AboutComponent },

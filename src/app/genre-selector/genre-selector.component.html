@@ -1,0 +1,17 @@
+<mat-accordion>
+  <mat-expansion-panel expanded>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h3>Genres</h3>
+      </mat-panel-title>
+      <mat-panel-description>
+        <p>Select the genres you want to include in your search.</p>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-chip-listbox [multiple]="true" [(ngModel)]="selectedGenres">
+      <mat-chip-option *ngFor="let genre of genres" [value]="genre">
+        {{ genre.name }}
+      </mat-chip-option>
+    </mat-chip-listbox>
+  </mat-expansion-panel>
+</mat-accordion>
