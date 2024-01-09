@@ -17,6 +17,8 @@ export class PopMoviesComponent implements OnInit {
   movies: Array<Movie> = [];
   genres: Array<Genre> = [];
 
+  loadingResults = false;
+
   constructor(
     private snackBar: MatSnackBar,
     private movieService: MovieService
@@ -39,6 +41,7 @@ export class PopMoviesComponent implements OnInit {
   async getResults() {
     // Reset the movie list
     this.movies = [];
+    this.loadingResults = true;
 
     const response: Movie[] = await fetch('http://127.0.0.1:41000/pop100', {
       method: 'POST',
@@ -55,6 +58,9 @@ export class PopMoviesComponent implements OnInit {
         this.snackBar.open('Hata oluştu', 'Kapat', {
           duration: 2000,
         });
+      })
+      .finally(() => {
+        this.loadingResults = false;
       });
 
     this.movies = response;

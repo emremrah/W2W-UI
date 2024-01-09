@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { PopMoviesComponent } from './pages/pop-movies/pop-movies.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { PopMoviesComponent } from './pages/pop-movies/pop-movies.component';
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressBarModule,
     RouterModule.forRoot([
       { path: '', component: PopMoviesComponent },
       { path: 'about', component: AboutComponent },
