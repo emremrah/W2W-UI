@@ -1,3 +1,9 @@
-<div class="movie-container" *ngFor="let movie of movies">
-  <app-movie [movie]="movie"></app-movie>
+<div class="movie-container" *ngIf="movies.length > 0; else noMoviesFound">
+  <app-movie *ngFor="let movie of movies" [movie]="movie"></app-movie>
 </div>
+
+<ng-template #noMoviesFound>
+  <div class="no-movies-message">
+    <p>No movies found. Try adjusting your filters or preferences.</p>
+  </div>
+</ng-template>
