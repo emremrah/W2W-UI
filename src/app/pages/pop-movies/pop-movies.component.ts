@@ -5,6 +5,7 @@ import { GenreSelectorComponent } from 'src/app/genre-selector/genre-selector.co
 import { Genre } from 'src/app/models/genre.model';
 import { Movie } from 'src/app/movie-list/movie/movie.model';
 import { MovieService } from 'src/app/services/movie/movie.service';
+import { MockMovieService } from 'src/app/mocks/mock-movie.service';
 
 @Component({
   selector: 'app-pop-movies',
@@ -23,7 +24,8 @@ export class PopMoviesComponent implements OnInit {
 
   constructor(
     private snackBar: MatSnackBar,
-    private movieService: MovieService
+    private movieService: MovieService,
+    private mockMovieService: MockMovieService
   ) {}
 
   async ngOnInit() {
@@ -41,26 +43,25 @@ export class PopMoviesComponent implements OnInit {
     this.movies = [];
     this.loadingResults = true;
 
-    const response: Movie[] = await fetch('http://127.0.0.1:41000/pop100', {
-      method: 'POST',
-      body: JSON.stringify({
-        genres: this.genreSelector.selectedGenres.map((genre) => genre.name),
-        min_rating: this.minRating,
-        use_ai: this.aiControlComponent.aiEnabled.value,
-        user_prompt: this.aiControlComponent.userPrompt.value || null,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((response) => response.json())
-      .catch((res) => {
-        this.snackBar.open('Hata oluştu', 'Kapat', {
-          duration: 2000,
-        });
-      })
-      .finally(() => {
-        this.loadingResults = false;
-      });
-
-    this.movies = response;
+    this.mockMovieService
+      .getMovies(
+        this.genreSelector.selectedGenres.map((genre) => genre.name),
+        this.minRating,
+        this.aiControlComponent.aiEnabled.value,
+        this.aiControlComponent.userPrompt.value || null
+      )
+      .subscribe(
+        (response) => {
+          this.movies = response;
+        },
+        (error) => {
+          this.snackBar.open('Hata oluştu', 'Kapat', {
+            duration: 2000,
+          });
+        },
+        () => {
+          this.loadingResults = false;
+        }
+      );
   }
 }
