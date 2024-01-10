@@ -25,6 +25,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { GenreSelectorComponent } from './genre-selector/genre-selector.component';
+import { RatingControlComponent } from './rating-control/rating-control.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { GenreSelectorComponent } from './genre-selector/genre-selector.componen
     AboutComponent,
     PopMoviesComponent,
     GenreSelectorComponent,
+    RatingControlComponent,
   ],
   imports: [
     BrowserModule,

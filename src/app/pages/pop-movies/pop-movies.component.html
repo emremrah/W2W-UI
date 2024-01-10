@@ -1,24 +1,16 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <app-genre-selector [genres]="genres"></app-genre-selector>
-      <app-ai-control></app-ai-control>
-      <div>
-        <label class="col-md-1">{{ minRating }}</label>
-        <mat-slider
-          class="col-md-1"
-          discrete="true"
-          tickInterval="1"
-          step="0.1"
-          min="0"
-          max="10"
-        >
-          <input matSliderThumb [(ngModel)]="minRating" #slider />
-        </mat-slider>
-      </div>
-    </div>
-    <button class="btn btn-primary" (click)="getResults()">Get results</button>
-  </div>
-  <mat-progress-bar mode="query" *ngIf="loadingResults"></mat-progress-bar>
-  <app-movie-list [movies]="movies"></app-movie-list>
+  <app-genre-selector [genres]="genres"></app-genre-selector>
+  <app-ai-control></app-ai-control>
+  <app-rating-control [minRating]="minRating"></app-rating-control>
+  <button class="btn btn-primary result-button" (click)="getResults()">
+    Get results
+  </button>
+  <mat-progress-bar
+    class="row"
+    mode="query"
+    *ngIf="loadingResults"
+  ></mat-progress-bar>
+</div>
+<div class="container">
+  <app-movie-list class="row" [movies]="movies"></app-movie-list>
 </div>

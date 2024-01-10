@@ -1,16 +1,20 @@
-<div>
-  <mat-slide-toggle class="toggle" [formControl]="aiEnabled">
-    <span>Use AI</span>
-  </mat-slide-toggle>
-  <div [@fadeInOut] *ngIf="aiEnabled.value">
-    <mat-form-field appearance="fill">
-      <mat-label>Enter AI Prompt</mat-label>
-      <textarea
-        matInput
-        [formControl]="userPrompt"
-        placeholder="Type your prompt"
-        rows="5"
-      ></textarea>
-    </mat-form-field>
-  </div>
-</div>
+<mat-card style="padding: 20px">
+  <mat-card-title>AI Assistant</mat-card-title>
+  <mat-card-subtitle>Enable AI to help you choose.</mat-card-subtitle>
+  <mat-card-content>
+    <mat-slide-toggle class="toggle" [formControl]="aiEnabled">
+      <span>Use AI</span>
+    </mat-slide-toggle>
+    <div [@fadeInOut] *ngIf="aiEnabled.value">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter Prompt</mat-label>
+        <textarea
+          matInput
+          [formControl]="userPrompt"
+          placeholder="Explain what would you like to watch right now."
+          rows="5"
+        ></textarea>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>
